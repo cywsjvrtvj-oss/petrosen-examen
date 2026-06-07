@@ -1,0 +1,126 @@
+body{
+    background-color: black;
+}
+p{
+    color: darkgreen;
+}
+
+
+:root {
+    /*  design du système */
+    --xds-brand-primary: #0b4531;
+    --xds-brand-secondary: #1d7413;
+    --xds-brand-accent: #21c88a;
+    --xds-brand-accent-glow: #00b4d8;
+    --xds-text-dark: #11241b;
+    
+    /*  performance */
+    --xds-grad-bg: linear-gradient(135deg, #f3faf6 0%, #e6f2eb 50%, #dbeee0 100%);
+    --xds-grad-interact: linear-gradient(45deg, #00b4d8, #21c88a, #237f27);
+    --xds-grad-text: linear-gradient(135deg, #1a450b 20%, #139a6c 100%);
+    --xds-grad-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.7) 100%);
+    
+    /* Ombrages légers optimisés pour éviter la surcharge GPU */
+    --xds-shadow-sm: 0 4px 12px rgba(11, 69, 19, 0.03);
+    --xds-shadow-md: 0 12px 30px rgba(11, 69, 35, 0.05);
+    
+    /* Transitions */
+    --xds-transition-perf: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                           box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                           background-position 0.4s ease,
+                           background-color 0.3s ease,
+                           border-color 0.3s ease;
+}
+
+/* --- 1. RENDU DE BASE  --- */
+body, #page, .site-content, .main-content, .page-wrapper {
+    background: var(--xds-grad-bg) !important;
+    color: var(--xds-text-dark) !important;
+    font-family: 'Raleway', 'Segoe UI', sans-serif;
+    text-rendering: optimizeSpeed; /* Force le navigateur à charger les textes rapidement */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+}
+
+/* ---  BOUTONS --- */
+blockquote:before,
+.bg-primary,
+.btn,
+.btn.btn-second:hover, 
+.btn.btn-second:focus,
+.main-navigation li ul a:hover,
+.page-pagination li span, 
+.page-pagination li a:hover,
+.blog-post .tagcloud a:hover,
+.mc4wp-form button,
+#back-to-top,
+.woocommerce .wc-proceed-to-checkout a.checkout-button,
+.woocommerce span.onsale,
+.woocommerce ul.products li.product .product-info a.add_to_cart_button, 
+.inner-content-wrap button.button.alt, 
+form.woocommerce-checkout .woocommerce-checkout-payment button.button.alt {
+    background: var(--xds-grad-interact) !important;
+    background-size: 200% auto !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 12px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: var(--xds-shadow-sm) !important;
+    background-position: left center !important;
+    cursor: pointer;
+    
+    /* Optimisation matérielle */
+    will-change: transform, box-shadow, background-position;
+    transform: translateZ(0); /* Force le rendu 3D préventif */
+    transition: var(--xds-transition-perf) !important;
+}
+
+/*  boutons  */
+.btn:hover, 
+.mc4wp-form button:hover,
+.woocommerce .wc-proceed-to-checkout a.checkout-button:hover,
+#back-to-top:hover {
+    transform: translateY(-4px) translateZ(0) !important; /* Pas de saccade */
+    background-position: right center !important;
+    box-shadow: 0 12px 24px rgba(0, 180, 216, 0.35) !important;
+}
+
+/* --- TEXTES ET TITRES  --- */
+h1, h2, h3 {
+    background: var(--xds-grad-text) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 900;
+    letter-spacing: -1px;
+    line-height: 1.2;
+}
+
+h4, h5, h6 {
+    color: var(--xds-brand-primary) !important;
+    font-weight: 800;
+}
+
+.text-primary, a, a:visited, .top-bar a:hover,
+.main-navigation li.current-menu-item > a {
+    color: var(--xds-brand-accent-glow) !important;
+    font-weight: 700;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--xds-brand-accent) !important;
+    text-decoration: none !important;
+}
+
+/* --- CARTES ET COMPOSANTS --- */
+.post-box, 
+.service-item, 
+.project-item, 
+.widget,
+.wpdm-download-link {
+    background: var(--xds-grad-glass) !important;
+    border: 1
