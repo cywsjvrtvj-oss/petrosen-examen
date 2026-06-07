@@ -4,8 +4,6 @@ body{
 p{
     color: darkgreen;
 }
-
-
 :root {
     /*  design du système */
     --xds-brand-primary: #0b4531;
