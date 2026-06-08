@@ -114,11 +114,4 @@ a:hover {
     text-decoration: none !important;
 }
 
-/* --- CARTES ET COMPOSANTS --- */
-.post-box, 
-.service-item, 
-.project-item, 
-.widget,
-.wpdm-download-link {
-    background: var(--xds-grad-glass) !important;
-    border: 1
+
